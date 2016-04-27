@@ -13,6 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0FDBD47F-B2E2-4D4C-BEEA-32322E90A1E0}</ProjectGuid>
     <RootNamespace>timeOrigincpp</RootNamespace>
+    <ProjectName>timedSerialOrigin.cpp</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -64,8 +65,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="autoTimedSerial.cpp" />
-    <ClCompile Include="timeSerialOrigin.cpp" />
+    <ClCompile Include="timedSerialOrigin.cpp" />
+    <ClCompile Include="userInputFunctions.cpp" />
+    <ClCompile Include="writeToCSVFile.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="timedSerialOriginHeader.h" />
+    <ClInclude Include="userInputHeader.h" />
+    <ClInclude Include="writeToCSVFileHeader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

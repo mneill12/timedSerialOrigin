@@ -15,11 +15,25 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="timeSerialOrigin.cpp">
+    <ClCompile Include="timedSerialOrigin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="autoTimedSerial.cpp">
+    <ClCompile Include="userInputFunctions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="writeToCSVFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="timedSerialOriginHeader.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="writeToCSVFileHeader.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="userInputHeader.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
