@@ -2,6 +2,7 @@
 #include "userInputHeader.h";
 #include "writeToCSVFileHeader.h";
 
+//constants 
 const int up = 1;
 const int down = 0;
 const int randMax = 100;
@@ -34,7 +35,7 @@ bool isSorted(int *elements){
 double getElapsedTime(clock_t start, clock_t stop)
 {
 	double elapsed = ((double)(stop - start)) / CLOCKS_PER_SEC;
-	printf("Elapsed time: %.3fs\n", elapsed);
+	printf("Elapsed time: %.3f\n", elapsed);
 
 	return elapsed;
 }
@@ -95,17 +96,18 @@ int main(void)
 
 	double* timeResults = (double*)malloc(executionCount*sizeof(double));;
 	char* arrayStates = (char*)malloc(executionCount*sizeof(char));
+	int* elementsSizes = (int*)malloc(executionCount*sizeof(int));
 
 	double time;
 	clock_t start, stop;
 	//Counter so we can assine values to the array in the execution loop
-
+	int size = 2;
 	while (runSort && executionCount != 0){
 
-		runSort = runSortAgain();
+		runSort = true;
 
 		//Get total element count
-		elementCount = getElementCount();
+		elementCount = size;//getElementCount();
 			
 		//Malloc array, add values to it and write unsorted array to csv file
 		int* values = (int*)malloc(elementCount*sizeof(int));
@@ -139,23 +141,26 @@ int main(void)
 		writeTimedSerialOriginArrayCsvFile(values, arrayState, elementCount);
 
 		//Allocate results values to pointers 
+		*elementsSizes = size;
 		*timeResults = time;
 		*arrayStates = arrayStateChar;
 
 		//Increment Result pointers
 		timeResults++;
 		arrayStates++;
+		elementsSizes++;
 
 		free(values);
 
 		//Check again for user input
+		size = size * 2;
 
 		executionCount--;
 	}
 
 	printf("Execution ended. Writing results to C:\BitonicSortArrayCSVFiles /n");
 
-	writeSortResultsToCsv(timeResults, "ParallelBitonicSort", arrayStates, fixedExecutionCount);
+	writeSortResultsToCsv(timeResults, "SerialBitonicSort", arrayStates, fixedExecutionCount, elementsSizes);
 
 	getchar();
 }

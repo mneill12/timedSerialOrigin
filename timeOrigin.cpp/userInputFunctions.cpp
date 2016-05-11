@@ -62,7 +62,7 @@ int getMaxProcessCount(){
 
 	int input;
 
-	printf("Enter maximum amount of times you wish to run the process: ");
+	printf("Enter exponent of base two of elements to sort: ");
 	scanf_s("%d", &input);
 	printf("You entered: %d\n", input);
 

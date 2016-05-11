@@ -1,6 +1,6 @@
 #include "writeToCSVFileHeader.h"
 
-void writeSortResultsToCsv(double* timeResults, char* sortType, char* arrayStates, int executionCount){
+void writeSortResultsToCsv(double* timeResults, char* sortType, char* arrayStates, int executionCount, int* elementsSizes){
 
 	struct tm *tm;
 	time_t t;
@@ -28,17 +28,20 @@ void writeSortResultsToCsv(double* timeResults, char* sortType, char* arrayState
 	FILE* file = fopen(fileDirAndName, "w");
 
 	//Column headers 
-	fprintf(file, "Threads, Blocks, time, result");
+	fprintf(file, "Time, Elements, result");
 
 	for (int i = 0; i < executionCount; i++){
 
 		sortType--;
 		timeResults--;
 		arrayStates--;
+		elementsSizes--;
 
 		fprintf(file, "\n");
 
-		fprintf(file, ",%.3fs ", *timeResults);
+		fprintf(file, "%d", *elementsSizes);
+		fprintf(file, ",%.3f", *timeResults);
+		
 
 		if (*arrayStates == 's'){
 			fprintf(file, ",sorted");
@@ -46,11 +49,10 @@ void writeSortResultsToCsv(double* timeResults, char* sortType, char* arrayState
 		else if (*arrayStates == 'u'){
 			fprintf(file, ",unsorted");
 		}
-		fprintf(file, ",\n");
 	}
 
 	//Add Array State at the end
-	fprintf(file, "\n ,%d ");
+	fprintf(file, "\n");
 
 	fclose(file);
 }

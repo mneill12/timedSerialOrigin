@@ -5,7 +5,7 @@
 #define _CRT_SECURE_NO_DEPRECATE
 
 //Function Prototypes 
-void writeSortResultsToCsv(double* timeResults, char* sortType, char* arrayStates, int executionCount);
+void writeSortResultsToCsv(double* timeResults, char* sortType, char* arrayStates, int executionCount, int* elementsSizes);
 void writeArrayAsCsvFile(char* filename, char* arrayState, int* array, int arrayLength);
 void writeTimedSerialOriginArrayCsvFile(int* values, char* arrayState, int elementCount);
 void writeSuggestedBlockThreadConfigToCsv(int* suggestedThreads, int* suggestedBlocks, int combinationsCount);
